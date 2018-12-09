@@ -19,3 +19,7 @@ bilstm.predict(list(jieba.cut('我我我想要')))
 bilstm.predict(list(jieba.cut('我我我想要吃義大利麵')))
 # --> [('我','O'),('我','O'),('我','O'),('想要','O'),('吃','O'),('義大利麵','PERIOD')]，出現'PERIOD'，代表輸入句子為完整句子，可進行後續分析。
 ```
+
+# Skill
+
+本專案提供BILSTM-CRF與BILSTM-CNN-CRF兩種序列標籤標記模型，據實驗結果，BILSTM-CNN-CRF表現較好。
