@@ -264,11 +264,12 @@ class BI_LSTM_CNN_CRF:
 				
 				print(self.id2word[str(word)],self.id2tag[str(pred)])
 	
-			
+	
 p_data = processData()
 p_data.loadParameters()
 
 bilstm = BI_LSTM_CNN_CRF(p_data.word2id,p_data.id2word,p_data.tag2id,p_data.id2tag,training_data = p_data.training_data)
-bilstm.predict()
 
-bilstm.predict2(list(jieba.cut('我我想要吃義大利麵')))
+
+bilstm.predict(list(jieba.cut('我我想要吃義大利麵')))
+
