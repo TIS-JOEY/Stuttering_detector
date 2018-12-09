@@ -225,27 +225,6 @@ class BI_LSTM_CNN_CRF:
 
 		save_load_utils.load_all_weights(model, filename,include_optimizer=False)
 		return model
-	
-	'''
-	def predict(self):
-		self.pad_process()
-		train_X,test_X, train_y, test_y = self.train_test_split()
-
-
-		model = self.load_model('BI_LSTM_CRF_CNN_model.h5')
-		i = 1900
-
-		p = model.predict(np.array([test_X[i]]))
-		p = np.argmax(p, axis=-1)
-		true = np.argmax(test_y[i], -1)
-		#print("{:15}||{:5}||{}".format("Word", "True", "Pred"))
-		#print(30 * "=")
-		
-		for w, t, pred in zip(test_X[i], true, p[0]):
-		    if w != 0:
-				       
-		        #print("{:15}: {:5} {}".format(self.id2word[str(w-1)], self.id2tag[str(t)], self.id2tag[str(pred)]))
-	'''
 
 	def predict(self,input_sen):
 		
@@ -264,12 +243,4 @@ class BI_LSTM_CNN_CRF:
 				
 				print(self.id2word[str(word)],self.id2tag[str(pred)])
 	
-	
-p_data = processData()
-p_data.loadParameters()
-
-bilstm = BI_LSTM_CNN_CRF(p_data.word2id,p_data.id2word,p_data.tag2id,p_data.id2tag,training_data = p_data.training_data)
-
-
-bilstm.predict(list(jieba.cut('我我想要吃義大利麵')))
 
